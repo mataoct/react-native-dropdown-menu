@@ -153,7 +153,7 @@ import {View, Text, TouchableHighlight, Image, TouchableOpacity, ScrollView, Ani
     return (
       <Animated.Image
         source={icon}
-        style={{marginLeft: 8, transform: [{
+        style={{width:6,height:4, marginLeft: 8, transform: [{
           rotateZ: this.state.rotationAnims[index].interpolate({
             inputRange: [0, 1],
             outputRange: ['0deg', '360deg']
@@ -166,7 +166,7 @@ import {View, Text, TouchableHighlight, Image, TouchableOpacity, ScrollView, Ani
 
     return (
       <View style={{flexDirection: 'column', flex: 1}} >
-        <View style={{flexDirection: 'row', backgroundColor: this.props.bgColor ? this.props.bgColor : this.defaultConfig.bgColor}} >
+        <View style={{flexDirection: 'row', backgroundColor: this.props.bgColor ? this.props.bgColor : this.defaultConfig.bgColor,borderBottomColor:'#ebebeb',borderBottomWidth:0.5}} >
 
           {
             this.props.data.map((rows, index) =>
@@ -176,8 +176,10 @@ import {View, Text, TouchableHighlight, Image, TouchableOpacity, ScrollView, Ani
                 key={index}
                 style={{flex: 1, height: 40, alignItems: "center", justifyContent: "center"}} >
                 <View style={{flexDirection: 'row', alignItems: "center", justifyContent: "center"}} >
+                  <View style={{flexGrow:1,height:13}}></View>
                   <Text style={{color: this.props.tintColor ? this.props.tintColor : this.defaultConfig.tintColor, fontSize: 13}} >{rows[this.state.selectIndex[index]]}</Text>
                   {this.renderDropDownArrow(index)}
+                  <View style={{flexGrow:1,height:13,borderRightWidth:0.5,borderRightColor:'#ebebeb'}}></View>
                 </View>
               </TouchableOpacity>
             )
